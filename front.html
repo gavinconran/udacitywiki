@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <title>Gavicity</title>
+<style>
+body {
+    position: relative;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    width: 800px;
+    margin: 0 auto;
+    padding: 0px;
+    color: #151515;
+    background-color: #EFF5F8;
+}
+  
+#wrapper {
+    background-color: #FFFFFF;
+    width: 100%;
+    min-width: 740px;
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+}  
+
+ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+li {
+	float:left;
+	width:25%;
+}
+
+a:link,a:visited {
+	display:block;
+	font-weight:bold;
+	color:#FFFFFF;
+	background-color:#3399CC;
+	text-align:center;
+	padding:4px;
+	text-decoration:none;
+	text-transform:uppercase;
+}  
+  
+a:hover,a:active {
+	background-color:#4D4D4D;
+}    
+  
+h1 {
+    background-color: #aaa; 
+    color: #888; 
+    margin: 0; 
+    height: 50px;
+}
+
+h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.error {
+    color: red;
+}
+
+label {
+  display: block;
+  font-size: 20px;
+}
+
+label + label {
+    margin-top: 20px;
+}
+
+input[type=text] {
+    width: 500px;
+    font-size: 20px;
+    padding: 2px;
+    font-family: monospace;
+}
+
+textarea {
+  width: 500px;
+  height: 400px;
+  font-size: 17px;
+  font-family: monospace;
+}
+
+input[type=submit] {
+  font-size: 24px;
+}
+
+.main-title {
+    display: block;
+    color: #222;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: none;
+}
+
+.post + .post {
+    margin-top: 15px;
+}
+
+.post-heading {
+    position: relative;
+    border-bottom: 3px solid #666;
+}
+
+.post-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.post-date {
+    position: absolute;
+    right: 10px;
+    color: #999;
+}
+
+.post-content {
+    margin-top: 5px;
+}
+
+.main-title {
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color:#FFFFFF;
+    background-color: #43A6CB;
+    top: 0px;
+}  
+  
+footer {
+	clear: left;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	padding-left: 2%;
+	background-color: #43A6CB;
+	color: #FFFFFF;
+}  
+</style>    
+</head>
+  
+  <body>  
+    <div id="wrapper">
+      <ul>
+        <li><a href="/signup">Sign Up</a></li>
+        <li><a href="/logon">Log On</a></li>
+        <li><a href="/logout">Log Out</a></li>
+        <li><a href="/newpost">New Post</a></li>
+	  </ul>
+      <a href="/" class="main-title">Gavicity Blog</a>
+	  {% block content %}
+        <form method="post">
+          <label>
+            <h3>Subject</h3> 
+            <input type="text" name="subject" value="{{ subject }}">
+          </label>
+          <label>
+            <h3>Content</h3>
+            <textarea name="content">{{ content }}</textarea>
+          </label>
+          <div class="error">{{ error }}</div>
+          <input type="submit" value="Submit">
+        </form>
+        <br/>
+        <footer>
+          <p>&copy; Copyright 2014 Conran Corp</p>
+        </footer>
+      {% endblock %}
+    </div>
+  </body>
+</html>  
+
+
+
