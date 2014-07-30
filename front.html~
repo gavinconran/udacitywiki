@@ -186,10 +186,11 @@ footer {
 	       
 		{% endif %}
 	  <br/>
+	  </div>
+	  <br/>
     <footer>
         <p>&copy; Copyright 2014 Conran Corp</p>
     </footer>
-    </div>
   </body>
 </html>  
 

@@ -165,30 +165,26 @@ footer {
         <li><a href="/logout">Log Out</a></li>
         <li><a href="/newpost">New Post</a></li>
 	  </ul>
-    <a href="/" class="main-title">Gavicity Wiki</a>
-    <br/>
-    {% if allowEdit %}  
-      {% if not page %}  
-        <h2>The Final!</h2>
-	    {% endif %}  
-	      
-	    <h2>{{ page.content | safe }}</h2>
-	    <form method = 'post'>  
-	    {% if not page %}  
-        <textarea name="content" style="display:none"><h2>The Final!</h2></textarea>	
-	    {% else %}     
-	      <textarea name="content" style="display:none">{{ page.content | safe }}</textarea>
-	    {% endif %}	  
-	    <input type="submit" value="Edit" >	        
-	    </form>  
-	  {% else %}
-	       <h2>{{ page.content | safe }}</h2>   
-	       
-		{% endif %}
-	  <br/>
-    <footer>
-        <p>&copy; Copyright 2014 Conran Corp</p>
-    </footer>
+      <a href="/" class="main-title">Gavicity Wiki</a>
+      
+      
+      <form method="post">
+        <h2>Edit the wiki</h2>
+
+        <label>Content</label>
+        {% if content %}
+          <textarea name="content">{{content}}</textarea>  
+        {% else %}  
+          <textarea name="content">Edit here</textarea>
+        {% endif %}  
+        <br>
+        <input type="submit" value="Save!"> 
+      </form>
+  
+        <br/>
+        <footer>
+          <p>&copy; Copyright 2014 Conran Corp</p>
+        </footer>
     </div>
   </body>
 </html>  

@@ -223,10 +223,10 @@ APP = webapp2.WSGIApplication([('/signup/?', Signup),
                                ('/logout/?', Logout),
                                #('/?', MainPage),
                                #('/_edit', EditPage),
-                               ('/wiki/_edit' + PAGE_RE, EditWikiPage),
-                               ('/wiki' + PAGE_RE, WikiPage)
-                               #('/_edit/?' + PAGE_RE, EditWikiPage),
-                               #('/?' + PAGE_RE, WikiPage)                              
+                               #('/wiki/_edit' + PAGE_RE, EditWikiPage),
+                               #('/wiki' + PAGE_RE, WikiPage),
+                               ('/_edit/?' + PAGE_RE, EditWikiPage),
+                               ('/?' + PAGE_RE, WikiPage)                              
                                ],
                               debug=True)
                               

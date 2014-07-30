@@ -50,25 +50,24 @@ a:hover,a:active {
 	background-color:#4D4D4D;
 }    
   
-h1 {
-    background-color: #aaa; 
-    color: #888; 
-    margin: 0; 
-    height: 50px;
-}
-
 h2 {
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 20px;
 }
 
-h3 {
-    font-size: 20px;
+.main-title {
+    display: block;
+    font-size: 40px;
     font-weight: bold;
-    margin-bottom: 20px;
-}
-
+    text-align: center;
+    margin-bottom: 30px;
+    text-decoration: none;
+    color:#FFFFFF;
+    background-color: #43A6CB;
+    top: 0px;
+}  
+  
 .error {
     color: red;
 }
@@ -89,52 +88,8 @@ input[type=text] {
     font-family: monospace;
 }
 
-textarea {
-  width: 500px;
-  height: 400px;
-  font-size: 17px;
-  font-family: monospace;
-}
-
 input[type=submit] {
   font-size: 24px;
-}
-
-.main-title {
-    display: block;
-    font-size: 40px;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 30px;
-    text-decoration: none;
-    color:#FFFFFF;
-    background-color: #43A6CB;
-    top: 0px;
-}  
-
-.post + .post {
-    margin-top: 15px;
-}
-
-.post-heading {
-    position: relative;
-    border-bottom: 3px solid #666;
-}
-
-.post-title {
-    font-size: 24px;
-    font-weight: bold;
-}
-
-.post-date {
-    position: absolute;
-    right: 0px;
-    top: 10px;
-    color: #999;
-}
-
-.post-content {
-    margin-top: 5px;
 }
 footer {
 	clear: left;
@@ -144,11 +99,10 @@ footer {
 	background-color: #43A6CB;
 	color: #FFFFFF;
 }
-
-</style>    
+</style>
+    
 </head>
-  
- <body>  
+<body> 
   <div id="wrapper">
     <ul>
         <li><a href="/signup">Sign Up</a></li>
@@ -156,31 +110,61 @@ footer {
         <li><a href="/logout">Log Out</a></li>
         <li><a href="/newpost">New Post</a></li>
 	</ul>
-    <a href="/" class="main-title">Gavicity Wiki</a>
-      
-		  {% if allowEdit %}  
-      {% if not page %}  
-        <h2>Edit Me!</h2>
-	    {% endif %}  
-	      
-	    <h2>{{ page.content | safe }}</h2>
-	    <form method = 'post'>  
-	    {% if not page %}  
-        <textarea name="content" style="display:none"><h2>Edit Me!</h2></textarea>	
-	    {% else %}     
-	      <textarea name="content" style="display:none">{{ page.content | safe }}</textarea>
-	    {% endif %}	  
-	    <input type="submit" value="Edit" >	        
-	    </form>  
-	  {% else %}
-	       <h2>{{ page.content | safe }}</h2>   
-	       
-		{% endif %}
-    <br/>
+    <a href="/" class="main-title">
+      Gavicity Blog
+    </a>
+{% block content %}
+    <h2>Sign Up</h2>
+    <form method="post">
+      <table>
+        <tr>
+          <td class="label">
+            Username
+          </td>
+          <td>
+            <input type="text" name="username" value="{{ username }}">
+            <span class="error">{{ username_error }}</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label">
+            Password
+          </td>
+          <td>
+            <input type="password" name="password">
+            <span class="error">{{ password_error }}</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label">
+            Verify Password
+          </td>
+          <td>
+            <input type="password" name="verify">
+            <span class="error">{{ verify_error }}</span>
+          </td>
+        </tr>
+
+        <tr>
+          <td class="label">
+            Email (optional)
+          </td>
+          <td>
+            <input type="text" name="email" value="{{ email }}">
+            <span class="error">{{ email_error }}</span>
+          </td>
+        </tr>
+      </table>
+
+      <input type="submit" value="Sign Up!">
+    </form>
+	<br/>
     <footer>
         <p>&copy; Copyright 2014 Conran Corp</p>
     </footer>
-  </div>
- </body>
+	{% endblock %}
+	</div>
+  </body>
 </html>  
-
