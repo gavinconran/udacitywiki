@@ -254,6 +254,8 @@ APP = webapp2.WSGIApplication([('/signup/?', Signup),
                                ('/welcome', Welcome),
                                ('/logon/?', Logon),
                                ('/logout/?', Logout),
+                               #('/wiki/_edit' + PAGE_RE, EditWikiPage),
+                               #('/wiki' + PAGE_RE, WikiPage),
                                ('/_edit' + PAGE_RE, EditWikiPage),
                                ('/history' + PAGE_RE, HistoryWikiPage),
                                ('' + PAGE_RE, WikiPage)                         

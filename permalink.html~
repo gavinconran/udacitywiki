@@ -156,7 +156,7 @@ footer {
         <li><a href="/logout">Log Out</a></li>
         <li><a href="/newpost">New Post</a></li>
 	</ul>
-    <div class="main-title">Gavicity Wiki</div>
+    <a href="/wiki/" class="main-title">Gavicity Wiki</a>
       
 		  {% if allowEdit %}  
       {% if not page %}  
